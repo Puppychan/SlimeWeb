@@ -1,0 +1,251 @@
+:root {
+    --header-height: 46.5px;
+    --content-width: 800px;
+    --slider-img-min-height: 800px;
+
+    --backgound-color-hover: #cccccc;
+    --color-hover: black;
+    --color-hover-red: #f44336;
+    --fade-opacity: .3;
+
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-family: Arial, Helvetica, sans-serif;
+    height: 100%;
+}
+#main {
+}
+
+
+
+/* Start of general */
+.clearer { clear: both; }
+.row {
+    
+}
+.content__sect {
+
+    /* overflow: scroll; */
+    margin: 0 356px;
+    padding: 74px 16px 64px;
+
+    width: var(--content-width);
+    max-width: 100%; /*fit for ipad + mobile size */
+
+    background-color: white;
+    text-align: center;
+    line-height: 1.5;
+}
+.content__sect-head {
+    font-size: 30px;
+    font-weight: 500;
+    letter-spacing: 1.3px;
+    text-transform: uppercase;
+}
+.content__sect-subhead {
+    margin-top: 15px;
+    opacity: 0.6;
+    font-style: italic;
+    font-size: 15px;
+}
+.content__sect-description {
+    margin: 15px 0;
+    font-size: 15px;
+}
+/* End of general */
+
+
+
+
+/* Start header */
+#header {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    height: var(--header-height);
+    width: 100vw;
+
+    background-color: #000;
+    font-size: 16px;
+    z-index: 10;
+}
+/* Header: nav bar */
+.header__navbar {
+    /* whole list become a block on the same line */
+    display: inline-block;
+
+    list-style-type: none;
+}
+.header__navbar-li {
+    /* all list elements on same line */
+    display: inline-block;
+}
+.header__navbar-li-link {
+    /* block: change size of a link */
+    display: inline-block;
+    padding: 0 24px;
+
+    /* center text */
+    text-align: center;
+    line-height: var(--header-height);
+
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: white;
+
+}
+
+/* navbar: subnav */
+.more {
+    position: relative;
+}
+.more .down-icon {
+    transform: translate(-1px, 3px);
+}
+.header__navbar-subnav {
+    display: none;
+    position: absolute;
+    top: var(--header-height);
+
+    list-style-type: none;
+    font-size: 15px;
+
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+.header__navbar-subnav-link {
+    /*a not box in default. change size of box */
+    display: block;
+    width: 160px;
+    height: 38.5px;
+    padding: 8px 16px;
+
+    /* in case window change size */
+    max-width: 100%;
+    max-height: 100%;
+
+    text-decoration: none;
+    color: black;
+    background-color: white;
+
+}
+.more:hover .header__navbar-subnav {
+    display: block;
+}
+.header__navbar-li-link:hover,
+.header__navbar-subnav-link:hover {
+    color: var(--color-hover);
+    background-color: var(--backgound-color-hover);
+}
+
+/* Header: search icon */
+.header__search {
+    float: right;
+    /* full display box on header */
+    height: 100%;
+    padding: 12px 24px;
+}
+.header__search .search-icon {
+    margin: auto;
+
+    fill: white;
+    width: 18px;
+    height: 20px;
+}
+.header__search:hover {
+    background-color: var(--color-hover-red);
+    cursor: pointer;
+}
+/* End header */
+
+
+
+/* start of slider */
+.slide {
+    /* make 3 slides on same place */
+    /* this make img appear on page */
+    width: 100%;
+    height: 100%;
+    /* make div from block -> stick with page */
+    position: absolute; 
+    top: 0;
+    left: 0;
+
+    /* fix content on the top of the page */
+    min-height: var(--slider-img-min-height);
+    
+    margin-top: var(--header-height);
+    /* Height = 50% width */
+    padding-top: 50%;
+}
+.slide__content {
+    /* Prevent the box width size 100% */
+    position: absolute;
+    bottom: 32px;
+    
+    /* padding: 0 16px; */
+
+    /* center the box */
+    left: 50%;
+    transform: translate(-50%, 0);
+    
+    text-align: center;
+    color: #fff;
+    /* text-shadow: -1px 0.5 black;  */
+    font-family: cursive;
+    letter-spacing: 1.5px;
+}
+.slide__content-header {
+    font-size: 20px;
+    font-weight: 900;
+}
+.slide__content-text {
+    font-size: 18px;
+    margin: 15px 0;
+}
+
+/* animation */
+.fade {
+    --fade-time: 1.4;
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: var(--fade-time) s;
+    animation-name: fade;
+    animation-duration: var(--fade-time) s;
+
+}
+@keyframes fade {
+    from {
+        opacity: var(--fade-opacity);
+    }
+    to {
+        opacity: 1;
+    }
+}
+@-webkit-keyframes fade {
+    from {
+        opacity: var(--fade-opacity);
+    }
+    to {
+        opacity: 1;
+    }
+}
+/* end of slider */
+
+
+
+/* Start of the content */
+#content {
+    /* fix slider height = 0 */
+    margin-top: calc(var(--slider-img-min-height) + var(--header-height));
+}
+
+/* End of the content */

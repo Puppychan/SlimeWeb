@@ -1,0 +1,62 @@
+/* grid contains rows, rows contain columns */
+
+.grid {
+    width: 100%;
+    /* display đề phòng element sau này ko block -> grid vẫn đúng */
+    display: block; 
+
+    padding: 0;
+}
+
+.grid.wide {
+    max-width: 1200px;
+    /* center */
+    margin: 0 auto; 
+}
+.row {
+    display: flex;
+    /* column xuống dòng nếu width > row's width */
+    flex-wrap: wrap;
+
+    margin-left: -4px;
+    margin-right: -4px;
+}
+/* hide 1 column */
+.col-hide {
+    display: none;   
+}
+.col-1 {
+    flex: 0 0 8.33333%;
+    max-width: 8.33333%;
+}
+
+/* > Tablet (and low resolution pc) */
+@media  screen and (min-width: 740px) and (max-width: 1023px) {
+    .wide {
+        width: 644px;
+    }
+    .row {
+        margin-left: -8px;
+        margin-right: -8px;
+    }
+}
+
+/* Low reso pc > */
+@media screen and (min-width: 1113px) {
+    .row {
+        margin-left: -12px;
+        margin-right: -12px;
+    }
+}
+
+
+/* > low resolution pc */
+@media  screen and (min-width: 1024px) and (max-width: 1239px) {
+    .wide {
+        width: 984px;
+    }
+    .wide .row {
+        margin-left: -12px;
+        margin-right: -12px;
+    }
+}
