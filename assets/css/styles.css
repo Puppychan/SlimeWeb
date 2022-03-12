@@ -7,7 +7,6 @@
     --color-hover: black;
     --color-hover-red: #f44336;
     --fade-opacity: .3;
-
 }
 
 * {
@@ -183,12 +182,17 @@ html {
     /* fix content on the top of the page */
     min-height: var(--slider-img-min-height);
     
+    background-position: top-center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    
     margin-top: var(--header-height);
     /* Height = 50% width */
     padding-top: 50%;
 }
 #slide-scroll {
-    transition: width 2s, height 2s;
+    transition: all 0.5s ease-in;
+    transition-property: background-size opacity filter z-index;
 }
 
 .slide__content {
@@ -240,6 +244,35 @@ html {
     }
     to {
         opacity: 1;
+    }
+}
+.scroll-fade {
+    --fade-time: 1.4;
+    -webkit-animation-name: fade-scroll;
+    -webkit-animation-duration: var(--fade-time) s;
+    animation-name: fade-scroll;
+    animation-duration: var(--fade-time) s;
+}
+@keyframes scroll-fade {
+    from {
+        filter: brightness(75%);
+
+    }
+    to {
+        filter: brightness(100%);
+
+
+    }
+}
+@-webkit-keyframes scroll-fade {
+    from {
+        filter: brightness(75%);
+
+    }
+    to {
+        filter: brightness(100%);
+
+
     }
 }
 /* end of slider */
