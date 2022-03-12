@@ -187,6 +187,10 @@ html {
     /* Height = 50% width */
     padding-top: 50%;
 }
+#slide-scroll {
+    transition: width 2s, height 2s;
+}
+
 .slide__content {
     /* Prevent the box width size 100% */
     position: absolute;
